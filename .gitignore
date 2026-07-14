@@ -1,0 +1,11 @@
+# Private Windows log data
+Local-Logs/
+*.csv
+
+# Temporary files
+*.tmp
+*.log
+
+# Windows files
+Thumbs.db
+desktop.ini
