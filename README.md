@@ -59,7 +59,7 @@ The analysis covers 8,412 Security events collected from the previous seven days
 ## Repository Structure
 
 ```text
-Windows-Log-Analysis
+windows-security-log-analysis
 ├── Local-Logs
 │   └── Security.csv        # Local only — excluded by .gitignore
 ├── Reports
@@ -73,3 +73,63 @@ Windows-Log-Analysis
 │   └── Export-SecurityLogs.ps1
 ├── .gitignore
 └── README.md
+```
+
+## Project Workflow
+
+1. Exported Windows Security logs from the previous seven days.
+2. Saved selected fields to a UTF-8 CSV file.
+3. Grouped and reviewed the most frequent Event IDs.
+4. Analysed successful and failed logons.
+5. Classified Event ID 4624 records by logon type.
+6. Reviewed privileged-logon activity using Event ID 4672.
+7. Analysed Credential Manager activity using Event ID 5379.
+8. Checked for Event ID 1102 audit-log clearing.
+9. Documented findings, limitations, and privacy considerations.
+
+## Screenshots
+
+### Security Event Summary
+
+![Security Event Summary](Screenshots/01-Windows-Security-Log-Summary-Redacted.png)
+
+### Successful Logon Type Analysis
+
+![Successful Logon Type Analysis](Screenshots/02-Successful-Logon-Type-Analysis.png)
+
+### Credential Manager Account Analysis
+
+![Credential Manager Account Analysis](Screenshots/03-Credential-Manager-Account-Summary-Redacted.png)
+
+### Privileged Logon Account Analysis
+
+![Privileged Logon Account Analysis](Screenshots/04-Privileged-Logon-Account-Summary-Redacted.png)
+
+## Skills Demonstrated
+
+- Windows Security Event Log analysis
+- PowerShell scripting
+- Authentication-event investigation
+- Privileged-account monitoring
+- Credential Manager event analysis
+- SOC-style investigation and reporting
+- Markdown documentation
+- Data redaction and privacy protection
+
+## Limitations
+
+- The dataset covers only the previous seven days.
+- Audit-policy settings may affect which events are available.
+- Event counts alone cannot determine whether activity is malicious.
+- Credential-target details were unavailable in the rendered Event ID 5379 CSV messages.
+- Deeper analysis would require process, network, account, and timestamp correlation.
+
+## Privacy Notice
+
+The original `Security.csv` file is excluded from the public repository because it may contain usernames, machine names, account identifiers, process details, and other sensitive system information.
+
+All public screenshots have been redacted.
+
+## Full Report
+
+[Read the complete findings report](Reports/Initial-Findings.md)
